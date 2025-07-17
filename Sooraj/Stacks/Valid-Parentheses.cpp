@@ -1,14 +1,25 @@
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        int n = size(nums);
-        for (int i=0;i<n;i++) {
-            for (int j=i+1;j<n;j++) {
-                if (nums[i]+nums[j]==target){
-                    return {i,j};
+    bool isValid(string s) {
+        stack<int> stk;
+        int top=-1;
+        char ch = '0';
+        for (int i=0;i<size(s);i++) {
+            ch = s[i];
+            if (ch=='(' ||ch=='[' ||ch=='{') {
+                stk.push(ch);
+            }
+            else {
+                if (stk.empty()) return false;
+                char t = stk.top();
+                if ((ch==')' &&t=='(') ||(ch==']' &&t=='[')||(ch=='}'&&t=='{')){
+                    stk.pop();
+                }
+                else {
+                    return false;
                 }
             }
-        }
-        return {};
+        }    
+        return stk.empty();    
     }
 };
