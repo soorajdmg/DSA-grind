@@ -6,7 +6,7 @@ public:
         char ch = '0';
         for (int i=0;i<size(s);i++) {
             ch = s[i];
-            if (ch=='(' ||ch=='[' ||ch=='{') {
+            if (ch=='(' || ch=='[' ||ch=='{') {
                 stk.push(ch);
             }
             else {
@@ -20,6 +20,6 @@ public:
                 }
             }
         }    
-        return stk.empty();    
+        return stk.empty();
     }
 };
